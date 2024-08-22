@@ -1,0 +1,12 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "hardhat:debug",
+			"problemMatcher": [],
+			"label": "npm: hardhat:debug",
+			"detail": "npx hardhat node --verbose"
+		}
+	]
+}
