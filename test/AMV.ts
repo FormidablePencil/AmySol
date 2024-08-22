@@ -53,19 +53,20 @@ describe("AMV", async () => {
       await amv.connect(owner).setPrivateIPFSHash(hash, authorizedAddreses);
       compareAuthorizedAddreses(await amv.getAllPrivilegedAddressesToIPFSHashes(hash));
     });
-
-    it("should only be callable by the owner", async () => {
-      const hash = "QmZULkVbpcv5j7n2keV2B92z2u1P3h9K9Fo91Y7s5zXw1";
-      await expect(
-        amv.connect(user1).setPrivateIPFSHash(hash, authorizedAddreses)
-      ).to.be.revertedWith("Only the owner can call this function");
-    });
   });
 
   describe("getAllPrivilegedAddressesToIPFSHashes", function () {
-    // it("should fail if sender is not authorized"), async () => {
-
-    // }
+    it("should fail if sender is not authorized", async () => {
+      authorizedAddreses = [
+          { addressVal: user1.address, priorityLevel: ContentPriorityLevel.Admin },
+          { addressVal: user2.address, priorityLevel: ContentPriorityLevel.Editor }
+      ]
+      const hash = "QmZULkVbpcv5j7n2keV2B92z2u1P3h9K9Fo91Y7s5zXw1";
+      await amv.connect(user1).setPrivateIPFSHash(hash, authorizedAddreses);
+      await expect(amv.getAllPrivilegedAddressesToIPFSHashes(hash)).to.be.revertedWith(
+        "Unauthorized address"
+      );
+    });
 
     it("should return the authorized addresses for the given private IPFS hash if sender is authorized", async () => {
       const hash = "QmZULkVbpcv5j7n2keV2B92z2u1P3h9K9Fo91Y7s5zXw1";
