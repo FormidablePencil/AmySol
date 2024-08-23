@@ -3,7 +3,7 @@
 pragma solidity ^0.8.24;
 
 import "hardhat/console.sol";
-import "./AMV.sol";
+import "./repositories/AMVRepository.sol";
 
 contract Marketplace {
     struct Hash {

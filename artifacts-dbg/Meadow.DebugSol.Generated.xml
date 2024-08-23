@@ -1,0 +1,421 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Meadow.DebugSol.Generated</name>
+    </assembly>
+    <members>
+        <member name="T:Meadow.DebugSol.Generated.IAMV">
+            <summary>From file contracts/abstracts/IAMV.sol<para/></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.IAMV.Deploy(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.IAMV.New(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.IAMV.changeContentAccessLvl(System.String,Meadow.Core.EthTypes.Address,System.Byte)">
+            <summary></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_user"><c>address</c></param>
+            <param name="contentAccessLvl"><c>uint8</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.IAMV.getAllPrivilegedAddressesToIPFSHashes(System.String)">
+            <summary> <para/>Returns <c>tuple[]</c></summary>
+            <param name="_hash"><c>string</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.IAMV.getPrivateIPFSHash">
+            <summary> <para/>Returns <c>tuple[]</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.IAMV.isAuthorized(System.String,Meadow.Core.EthTypes.Address)">
+            <summary> <para/>Returns <c>bool</c></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_user"><c>address</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.IAMV.revokeAccess(System.String,System.Collections.Generic.IEnumerable{Meadow.Core.EthTypes.Address})">
+            <summary></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_users"><c>address[]</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.IAMV.setPrivateIPFSHash(System.String,System.Collections.Generic.IEnumerable{Meadow.Core.EthTypes.Address})">
+            <summary></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_authorizedAddresses"><c>address[]</c></param>
+        </member>
+        <member name="P:Meadow.DebugSol.Generated.IAMV.FallbackFunction">
+            <summary>The contract fallback function. <para/></summary>
+        </member>
+        <member name="T:Meadow.DebugSol.Generated.AMVDomain">
+            <summary>From file contracts/domains/AMVDomain.sol<para/></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.Deploy(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.New(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.changeContentAccessLvl(System.String,Meadow.Core.EthTypes.Address,System.Byte,System.Boolean,Meadow.Core.EthTypes.Address)">
+            <summary></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_user"><c>address</c></param>
+            <param name="contentAccessLvl"><c>uint8</c></param>
+            <param name="_debugging"><c>bool</c></param>
+            <param name="_debugAddress"><c>address</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.changeContentAccessLvl(System.String,Meadow.Core.EthTypes.Address,System.Byte)">
+            <summary></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_user"><c>address</c></param>
+            <param name="contentAccessLvl"><c>uint8</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.getAllPrivilegedAddressesToIPFSHashes(System.String)">
+            <summary> <para/>Returns <c>tuple[]</c></summary>
+            <param name="_hash"><c>string</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.getAllPrivilegedAddressesToIPFSHashes(System.String,System.Boolean,Meadow.Core.EthTypes.Address)">
+            <summary> <para/>Returns <c>tuple[]</c></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_debugging"><c>bool</c></param>
+            <param name="_debugAddress"><c>address</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.getMsgSender">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.getPrivateIPFSHash">
+            <summary> <para/>Returns <c>tuple[]</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.getPrivateIPFSHash(System.Boolean,Meadow.Core.EthTypes.Address)">
+            <summary> <para/>Returns <c>tuple[]</c></summary>
+            <param name="_debugging"><c>bool</c></param>
+            <param name="_debugAddress"><c>address</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.isAuthorized(System.String,Meadow.Core.EthTypes.Address,System.Boolean,Meadow.Core.EthTypes.Address)">
+            <summary> <para/>Returns <c>bool</c></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_user"><c>address</c></param>
+            <param name="_debugging"><c>bool</c></param>
+            <param name="_debugAddress"><c>address</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.isAuthorized(System.String,Meadow.Core.EthTypes.Address)">
+            <summary> <para/>Returns <c>bool</c></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_user"><c>address</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.revokeAccess(System.String,System.Collections.Generic.IEnumerable{Meadow.Core.EthTypes.Address})">
+            <summary></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_users"><c>address[]</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.revokeAccess(System.String,System.Collections.Generic.IEnumerable{Meadow.Core.EthTypes.Address},System.Boolean,Meadow.Core.EthTypes.Address)">
+            <summary></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_users"><c>address[]</c></param>
+            <param name="_debugging"><c>bool</c></param>
+            <param name="_debugAddress"><c>address</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.setPrivateIPFSHash(System.String,System.Collections.Generic.IEnumerable{Meadow.Core.EthTypes.Address})">
+            <summary></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_authorizedAddresses"><c>address[]</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMVDomain.setPrivateIPFSHash(System.String,System.Collections.Generic.IEnumerable{Meadow.Core.EthTypes.Address},System.Boolean,Meadow.Core.EthTypes.Address)">
+            <summary></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_authorizedAddresses"><c>address[]</c></param>
+            <param name="debug"><c>bool</c></param>
+            <param name="debugAddress"><c>address</c></param>
+        </member>
+        <member name="P:Meadow.DebugSol.Generated.AMVDomain.FallbackFunction">
+            <summary>The contract fallback function. <para/></summary>
+        </member>
+        <member name="T:Meadow.DebugSol.Generated.Lock">
+            <summary>From file contracts/Lock.sol<para/></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.Lock.Deploy(Meadow.Core.EthTypes.UInt256,Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="_unlockTime"><c>uint256</c></param>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.Lock.New(Meadow.Core.EthTypes.UInt256,Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="_unlockTime"><c>uint256</c></param>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.Lock.owner">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.Lock.unlockTime">
+            <summary> <para/>Returns <c>uint256</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.Lock.withdraw">
+            <summary></summary>
+        </member>
+        <member name="P:Meadow.DebugSol.Generated.Lock.FallbackFunction">
+            <summary>The contract fallback function. <para/></summary>
+        </member>
+        <member name="T:Meadow.DebugSol.Generated.AMV">
+            <summary>From file contracts/managers/AMVManager.sol<para/></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMV.Deploy(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMV.New(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMV.changeContentAccessLvl(System.String,Meadow.Core.EthTypes.Address,System.Byte)">
+            <summary></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_user"><c>address</c></param>
+            <param name="contentAccessLvl"><c>uint8</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMV.getAllPrivilegedAddressesToIPFSHashes(System.String)">
+            <summary> <para/>Returns <c>tuple[]</c></summary>
+            <param name="_hash"><c>string</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMV.getMsgSender">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMV.getPrivateIPFSHash">
+            <summary> <para/>Returns <c>tuple[]</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMV.isAuthorized(System.String,Meadow.Core.EthTypes.Address)">
+            <summary> <para/>Returns <c>bool</c></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_user"><c>address</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMV.publicIPFSHash">
+            <summary> <para/>Returns <c>string</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMV.revokeAccess(System.String,System.Collections.Generic.IEnumerable{Meadow.Core.EthTypes.Address})">
+            <summary></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_users"><c>address[]</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.AMV.setPrivateIPFSHash(System.String,System.Collections.Generic.IEnumerable{Meadow.Core.EthTypes.Address})">
+            <summary></summary>
+            <param name="_hash"><c>string</c></param>
+            <param name="_authorizedAddresses"><c>address[]</c></param>
+        </member>
+        <member name="P:Meadow.DebugSol.Generated.AMV.FallbackFunction">
+            <summary>The contract fallback function. <para/></summary>
+        </member>
+        <member name="T:Meadow.DebugSol.Generated.DebuggingUtils">
+            <summary>From file contracts/utils/DebuggingUtils.sol<para/></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DebuggingUtils.Deploy(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DebuggingUtils.New(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DebuggingUtils.getMsgSender">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="P:Meadow.DebugSol.Generated.DebuggingUtils.FallbackFunction">
+            <summary>The contract fallback function. <para/></summary>
+        </member>
+        <member name="T:Meadow.DebugSol.Generated.console">
+            <summary>From file hardhat/console.sol<para/></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.console.Deploy(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.console.New(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="P:Meadow.DebugSol.Generated.console.FallbackFunction">
+            <summary>The contract fallback function. <para/></summary>
+        </member>
+        <member name="T:Meadow.DebugSol.Generated.DbgEntry">
+            <summary>From file Test1.t.sol<para/></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.Deploy(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.New(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.authorizedAddreses(Meadow.Core.EthTypes.UInt256)">
+            <summary> <para/>Returns <c>address,uint8</c></summary>
+            <param name="unamed0"><c>uint256</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.expectToEqual(System.Boolean)">
+            <summary></summary>
+            <param name="boolean"><c>bool</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.expectToEqualAbiEncodePacked(System.String,System.String)">
+            <summary></summary>
+            <param name="first"><c>string</c></param>
+            <param name="second"><c>string</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.extractStringFromBytes32(System.String)">
+            <summary> <para/>Returns <c>string</c></summary>
+            <param name="input"><c>string</c></param>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.hashVal">
+            <summary> <para/>Returns <c>string</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.hashVal2">
+            <summary> <para/>Returns <c>string</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.owner">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.setPrivateIPFSHash_shouldReturnThePrivateIPFSHashesForTheGivenAuthorizedAddress">
+            <summary></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.user1">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.user2">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.DbgEntry.user3">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="P:Meadow.DebugSol.Generated.DbgEntry.FallbackFunction">
+            <summary>The contract fallback function. <para/></summary>
+        </member>
+        <member name="T:Meadow.DebugSol.Generated.TestUtil">
+            <summary>From file Test1.t.sol<para/></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.TestUtil.Deploy(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.TestUtil.New(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.TestUtil.hashVal">
+            <summary> <para/>Returns <c>string</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.TestUtil.hashVal2">
+            <summary> <para/>Returns <c>string</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.TestUtil.owner">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.TestUtil.user1">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.TestUtil.user2">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.TestUtil.user3">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="P:Meadow.DebugSol.Generated.TestUtil.FallbackFunction">
+            <summary>The contract fallback function. <para/></summary>
+        </member>
+        <member name="T:Meadow.DebugSol.Generated.UsersAddresses">
+            <summary>From file Test1.t.sol<para/></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.UsersAddresses.Deploy(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.UsersAddresses.New(Meadow.JsonRpc.Client.IJsonRpcClient,Meadow.JsonRpc.Types.TransactionParams,System.Nullable{Meadow.Core.EthTypes.Address})">
+            <summary>
+            Deploys the contract.  <para/>
+            </summary>
+            <param name="rpcClient">The RPC client to be used for this contract instance.</param>
+            <param name="defaultFromAccount">If null then the first account returned by eth_accounts will be used.</param>
+            <returns>An contract instance pointed at the deployed contract address.</returns>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.UsersAddresses.owner">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.UsersAddresses.user1">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.UsersAddresses.user2">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="M:Meadow.DebugSol.Generated.UsersAddresses.user3">
+            <summary> <para/>Returns <c>address</c></summary>
+        </member>
+        <member name="P:Meadow.DebugSol.Generated.UsersAddresses.FallbackFunction">
+            <summary>The contract fallback function. <para/></summary>
+        </member>
+    </members>
+</doc>
