@@ -1,26 +1,38 @@
+
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.24;
 
-enum ContentAccessLvl {
-    Admin, Editor, ViewOnly
-}
+// =============================================================================
+// This is a generated file by /codegen. Don't make edits to this file directly.
+// This code generated comes from /codegen/codegen.rs
+// =============================================================================
 
-struct AuthorizedAddress {
-    address addressVal;
-    ContentAccessLvl contentAccessLvl;
-}
 
-struct IPFSHash {
-    string ipfsHash;
-    // todo: add date upon creation
-}
-
-abstract contract IAMV {
-    function setPrivateIPFSHash(string memory _hash, AuthorizedAddress[] memory _authorizedAddresses) public virtual;
-    function getPrivateIPFSHash() public view virtual returns (IPFSHash[] memory);
-    function getAllPrivilegedAddressesToIPFSHashes(string memory _hash) public view virtual returns (AuthorizedAddress[] memory);
-    function revokeAccess(string memory _hash, address[] memory _users) public virtual;
-    function changeContentAccessLvl(string memory _hash, address _user, ContentAccessLvl contentAccessLvl) public virtual;
-    function isAuthorized(string memory _hash, address _user) public view virtual returns (bool);
+abstract contract IAMV  {
+    
+    function setPrivateIPFSHash(
+    My name is String and I'm String years old. "Memory "_hash_authorizedAddresses, bool _debugging, address _debugAddress
+    )  withDebug(_debugging, _debugAddress) ;
+    
+    function getPrivateIPFSHash(
+    My name is String and I'm String years old. "Memory "_hash_authorizedAddresses, bool _debugging, address _debugAddress
+    )  withDebug(_debugging, _debugAddress) returns (My name is IPFSHashArray and I'm IPFSHashArray years old. );
+    
+    function getAllPrivilegedAddressesToIPFSHashes(
+    My name is String and I'm String years old. "Memory "_hash, bool _debugging, address _debugAddress
+    )  withDebug(_debugging, _debugAddress) returns (My name is AuthorizedAddressArray and I'm AuthorizedAddressArray years old. );
+    
+    function revokeAccess(
+    My name is String and I'm String years old. "Memory "_hash_users, bool _debugging, address _debugAddress
+    )  withDebug(_debugging, _debugAddress) ;
+    
+    function changeContentAccessLvl(
+    My name is String and I'm String years old. "Memory "_hash_contentAccess, bool _debugging, address _debugAddress
+    )  withDebug(_debugging, _debugAddress) ;
+    
+    function isAuthorized(
+    My name is String and I'm String years old. "Memory "_hash_user, bool _debugging, address _debugAddress
+    )  withDebug(_debugging, _debugAddress) returns (My name is Bool and I'm Bool years old. );
+    
 }

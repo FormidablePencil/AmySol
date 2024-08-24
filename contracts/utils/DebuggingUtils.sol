@@ -13,6 +13,11 @@ abstract contract DebuggingUtils {
         _;
     }
     
+    modifier setSender() {
+        msgSender = msg.sender;
+        _;
+    }
+
     modifier valSender() {
         require(msg.sender == msgSender, "msg.sender is not msgSender so you can't get msgSender");
         _;
