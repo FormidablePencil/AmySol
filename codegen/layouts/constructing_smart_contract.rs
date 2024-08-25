@@ -6,16 +6,22 @@ use super::smart_contract_building_blocks::{gen_domain_abstract_fns, GenFnData, 
 
 pub fn gen_code_and_write_to_files(
     contract_name: &str,
-    inharet_modules: Option<Vec<&str>>,
-    imports: Option<Vec<&str>>,
+    domain_inharet_modules: Vec<&str>,
+    domain_imports: Vec<&str>,
+    abstract_imports: Vec<&str>,
+    domain_body_code: String,
+    abstract_body_code: String,
     gen_fns_data: Vec<GenFnData>,
 ) -> Result<()> {
     let (abstract_smart_contract, domain_smart_contract) = abstract_and_domain_smart_contracts_gen(
         contract_name,
-        if inharet_modules.is_some() {inharet_modules.unwrap()} else {vec![]},
-        if imports.is_some() {imports.unwrap()} else {vec![]},
+        domain_inharet_modules,
+        domain_imports,
+        abstract_imports,
+        domain_body_code,
+        abstract_body_code,
         gen_fns_data,
-    );
+);
     let mut res = write_smart_contract(contract_name, TypeOfContract::Abstract, &abstract_smart_contract);
     res = write_smart_contract(contract_name, TypeOfContract::Domain, &domain_smart_contract);
     res
@@ -37,41 +43,52 @@ pub fn get_file_path(name: &str, type_of_contract: TypeOfContract) -> String {
 
 pub fn abstract_and_domain_smart_contracts_gen(
     contract_name: &str,
-    inharet_modules: Vec<&str>,
-    imports: Vec<&str>,
+    domain_inharet_modules: Vec<&str>,
+    domain_imports: Vec<&str>,
+    abstract_imports: Vec<&str>,
+    domain_body_code: String,
+    abstract_body_code: String,
     gen_fns_data: Vec<GenFnData>,
 ) -> (String, String) {
     // #region Generate body for both abstract and domain smart contracts
-    let mut domain_body_code = String::from("");
-    let mut abstract_body_code = String::from("");
+    let mut _domain_body_code = String::from("");
+    _domain_body_code += &domain_body_code;
+    let mut _abstract_body_code = String::from("");
+    _abstract_body_code += &abstract_body_code;
 
-    for gen_fn_data in gen_fns_data {
+    for (i, gen_fn_data) in gen_fns_data.iter().enumerate() {
         let (domain_funcs, abstract_func) = &gen_domain_abstract_fns(
                 gen_fn_data.name,
-                gen_fn_data.args,
+                &gen_fn_data.args,
                 gen_fn_data.code,
-                if gen_fn_data.modifiers.is_some() { gen_fn_data.modifiers.unwrap() } else {vec![]},
-                gen_fn_data.return_args,
+                &gen_fn_data.modifiers,
+                &gen_fn_data.return_args,
         );
-        domain_body_code += domain_funcs;
-        abstract_body_code += abstract_func;
+        _domain_body_code += domain_funcs;
+        _abstract_body_code += abstract_func;
+        // TODO: remove this code later perhaps
+        // if i < gen_fns_data.len() {
+            // Addspace between functions
+            // _abstract_body_code += &String::from("
+            // ");
+        // }
     }
     // #endregion
 
     let amv_abstract = gen_smart_contract_layout(
 &format!("I{contract_name}"),
-        None,
-        None,
-        &abstract_body_code,
-        TypeOfContract::Abstract
+        vec![],
+        abstract_imports,
+        &_abstract_body_code,
+        TypeOfContract::Abstract,
     );
 
     let amv_domain = gen_smart_contract_layout(
         &format!("{contract_name}Domain"),
-        Some(merge_and_get_unique_data(&inharet_modules, vec![&format!("I{contract_name}"), "DebuggingUtils"])),
-        Some(merge_and_get_unique_data(&imports, vec![&format!("../managers/{contract_name}Manager.sol")])),
-        &domain_body_code, 
-        TypeOfContract::Domain
+        merge_and_get_unique_data(&domain_inharet_modules, vec![&format!("I{contract_name}"), "DebuggingUtils"]),
+        merge_and_get_unique_data(&domain_imports, vec![&format!("../managers/{contract_name}Manager.sol")]),
+        &_domain_body_code, 
+        TypeOfContract::Domain,
     );
 
     (amv_abstract, amv_domain)
@@ -79,8 +96,8 @@ pub fn abstract_and_domain_smart_contracts_gen(
 
 pub fn gen_smart_contract_layout(
     contract_name: &str,
-    inharet_modules: Option<Vec<&str>>,
-    imports: Option<Vec<&str>>,
+    inharet_modules: Vec<&str>,
+    imports: Vec<&str>,
     contract_code: &str,
     type_of_contract: TypeOfContract,
 ) -> String {
@@ -99,41 +116,35 @@ pragma solidity ^0.8.24;
 
 {concocted_imports}
 {if_abstract}contract {contract_name} {concocted_inharet} {{
-    {contract_code}
+{contract_code}
 }}")
 }
 
-fn inharet(modules: Option<Vec<&str>>) -> String {
+fn inharet(modules: Vec<&str>) -> String {
     let mut first_iteration = true;
     let mut modules_paths = String::new();
-    match modules {
-        Some(modules) => {
-            for module in modules.iter() { if first_iteration {
-                    modules_paths += &format!("is {}", module);
-                    first_iteration = false;
-                } else {
-                    modules_paths += &format!(", {}", module);
-                }
-
+    if modules.len() > 0 {
+        for module in modules.iter() { if first_iteration {
+                modules_paths += &format!("is {}", module);
+                first_iteration = false;
+            } else {
+                modules_paths += &format!(", {}", module);
             }
-            modules_paths
-        },
-        None => String::from(""),
+
+        }
+        modules_paths
+    } else {
+        String::from("")
     }
 }
 
-fn concoct_imports(items: Option<Vec<&str>>) -> String {
-    match items {
-        Some(items) => {
-            let mut imports = String::new();
-            for item in items.iter() {
-                imports += &format!("import '{}';
-                ", item);
-            }
-            imports
-        }
-        None => String::from(""),
+fn concoct_imports(items: Vec<&str>) -> String {
+    let mut imports = String::new();
+    for item in items.iter() {
+        imports += &format!("import '{}';
+        ", item);
     }
+    imports
 }
 
 fn if_abstract(type_of_contract: TypeOfContract) -> String {

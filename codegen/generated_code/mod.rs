@@ -43,6 +43,6 @@ impl GenFnArgs {{
 }
 
 fn write_generated_rs_code(name: &str, contents: &str) {
-    let mut file = File::create("C:/Users/formi/Documents/code/amvySol/codegen/generated_code/generated_rs_code.rs");
+    let mut file = File::create("C:/Users/formi/Documents/code/amvySol/codegen/generated_code/generated_rs_code2.rs");
     file.unwrap().write_all(contents.as_bytes());
 }

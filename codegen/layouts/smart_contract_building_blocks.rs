@@ -3,6 +3,7 @@ use std::{fmt::{self, Debug}, hash::Hash};
 use crate::{generated_code::generated_rs_code::DataType, utils::{self, merge_and_get_unique_data}};
 // #[allow(unused_variables)]
 
+#[derive(PartialEq)]
 pub enum TypeOfContract {
     Domain, Abstract
     // Manager, Repository,
@@ -11,6 +12,24 @@ pub enum TypeOfContract {
 #[derive(Debug, PartialEq, Clone, Eq, Hash)]
 pub enum Modifier {
     Public,
+    Virtual,
+    Pure,
+    View,
+    Payable,
+    Default,
+    Nonpayable,
+    Internal,
+    External,
+    Private,
+    InternalAndPublic,
+    InternalAndPrivate,
+    InternalAndExternal,
+    InternalAndPublicAndPrivate,
+    InternalAndPublicAndExternal,
+    InternalAndPrivateAndExternal,
+    InternalAndPublicAndPrivateAndExternal,
+    NonpayableAndPublic,
+
     // Private,
     // Internal,
     // External,
@@ -38,10 +57,10 @@ pub struct GenFnArgs {
 
 pub struct GenFnData<'a> {
     pub name: &'a str,
-    pub args: Option<Vec<GenFnArgs>>,
-    pub modifiers: Option<Vec<Modifier>>,
+    pub args: Vec<GenFnArgs>,
+    pub modifiers: Vec<Modifier>,
     pub code: &'a str,
-    pub return_args: Option<Vec<GenFnArgs>>,
+    pub return_args: Vec<GenFnArgs>,
 }
 // TODO: Automated testing for domains
 
@@ -77,44 +96,10 @@ impl GenFnDataArgsTrait for GenFnArgs {
     }
 }
 
-impl std::fmt::Display for DataType {
-    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> fmt::Result {
-        // TODO: Probably don't need to lowercase with DataType since case sensitivity may need to be preserved
-        write!(fmt, "{:?}", utils::lowercase_first_letter_of_enum(self))
-    }
-}
-
-impl std::fmt::Display for StorageType {
-    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> fmt::Result {
-        write!(fmt, "{:?}", utils::lowercase_first_letter_of_enum(self))
-    }
-}
-
-impl std::fmt::Display for Modifier {
-    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> fmt::Result {
-        write!(fmt, "{:?}", utils::lowercase_first_letter_of_enum(self))
-    }
-}
-
-impl StorageType {
-    fn trim(&self) -> String {
-        utils::trim(&mut self.to_string()).to_owned()
-    }
-}
-
-impl Modifier {
-    fn trim(&mut self) -> String {
-        utils::lowercase_first_letter_of_enum(utils::trim(&mut self.to_string())).to_owned()
-    }
-}
-
 impl GenFnArgs {
-    pub fn trim(input: &mut String) -> &mut String {
-        utils::trim(input)
-    }
-
     pub fn storage_type(&self) -> String {
-        utils::lowercase_first_letter_of_enum(Self::trim(&mut self.storage_type.to_string()))
+        // utils::lowercase_first_letter_of_enum(Self::trim())
+        self.storage_type.to_string()
     }
 
     pub fn formated(&self) -> (String, String, String) {
@@ -126,182 +111,187 @@ impl GenFnArgs {
     }
 }
 
-fn gen_modifiers(modifiers: &Vec<Modifier>) -> (String, String) {
-    let mut is_with_debug = true;
+fn gen_modifiers(modifiers: &Vec<Modifier>, type_of_contract: TypeOfContract) -> (String, String) {
+    let mut is_with_debug = false;
     let mut mods = String::new();
     let mut debug_args = String::new();
 
     for modifier in modifiers.into_iter() {
-        let mut first_iteration = true;
+        // let mut first_iteration = true;
+        mods += " ";
 
         match modifier {
             // Modifiers::Private |
             // Modifiers::Internal |
             // Modifiers::External |
             // Modifiers::View |
+            Modifier::Virtual |
             Modifier::Public |
             Modifier::Override => {
-                if first_iteration {
-                    mods += " ";
-                    first_iteration = false;
-                }
-                mods += &format!("{}", modifier.clone().trim());
+                mods += &modifier.to_string();
             }
             Modifier::SetSender => {
-                mods += &format!(" {}()", modifier.clone().trim());
+                mods += &format!("{}()", &modifier.to_string());
             }
             Modifier::WithDebug => {
                 is_with_debug = true;
             },
+            _ => {
+                mods += &modifier.to_string();
+            }
         }
     }
-    if is_with_debug {
-        // will always make withDebug last modifier
-        mods += &format!(" withDebug(_debugging, _debugAddress)");
-        debug_args = format!(", bool _debugging, address _debugAddress");
+    if is_with_debug && type_of_contract == TypeOfContract::Domain {
+        if mods.len() != 0 {
+            mods += " ";
+        }
+        // will always make withDebug the last modifier
+        mods += &format!("withDebug(_debugging, _debugAddress)");
+        debug_args = format!("bool _debugging, address _debugAddress");
     }
     (mods, debug_args)
 }
 
 fn gen_fn_body(code: &str, generated_args: &String) -> String {
-    format!("return {code}({generated_args})")
+    format!("return {code}({generated_args});")
 }
 
-fn gen_return(return_args_opt: &Option<Vec<GenFnArgs>>) -> String {
-    match return_args_opt {
-        Some(return_args) => {
-            let mut args = String::new();
-            let mut first_iteration = true;
-            for arg in return_args.iter() {
-                if first_iteration {
-                    args += &format!(" {} {}", arg.data_type(), arg.name);
-                    first_iteration = false;
-                } else {
-                    args += &format!(", {} {}", arg.data_type(), arg.name);
-                }
-            }
-            format!(" returns ({})", args)
+fn gen_return(return_args: &Vec<GenFnArgs>) -> String {
+    if return_args.len() == 0 { return String::from("") }
+    let mut args = String::new();
+    let mut first_iteration = true;
+    for arg in return_args.iter() {
+        if first_iteration {
+            first_iteration = false;
+        } else {
+            args += ",";
         }
-        None => String::from("")
+        args += &format!(" {} {}", arg.data_type, arg.storage_type);
     }
+    format!(" returns ({})", args)
 }
 
-fn gen_args(args_opt: &Option<Vec<GenFnArgs>>, receiving: bool) -> String {
+fn gen_args(args: &Vec<GenFnArgs>, receiving: bool) -> String {
     let mut string_of_args = String::new();
     let mut first_iteration = true;
-    match args_opt {
-        Some(args) => {
-        for arg in args.iter() {
-            let (data_type, storage_type, name) = arg.formated();
-            let storage_type = match arg.storage_type {
-                StorageType::None => "",
-                _ => &format!("{:?}",storage_type) 
-            };
-            if receiving {
-                if first_iteration {
-                    // string_of_args += name;
-                    string_of_args += &format!("{:} {:?} {:}", data_type, storage_type, name);
-                    first_iteration = false;
-                } else {
-                    string_of_args += &format!("{:} {:?} {:}", data_type, storage_type, name);
-                }
+    for arg in args.iter() {
+        let (data_type, storage_type, name) = arg.formated();
+        if receiving {
+            if first_iteration {
+                first_iteration = false;
             } else {
-                if first_iteration {
-                    string_of_args += &format!(", {:} {:?} {:}", data_type, storage_type, name);
-                    first_iteration = false;
-                } else {
-                    string_of_args += &format!(", {:} {:?} {:}", data_type, storage_type, name);
-                }
+                // add spacing between every argument
+                string_of_args += ", ";
             }
+            string_of_args += &format!("{} {} {}", data_type, storage_type, name);
+        } else {
+            if first_iteration {
+                first_iteration = false;
+            } else {
+                string_of_args += ", ";
+            }
+            string_of_args += &format!("{}", name);
         }
-        string_of_args
-        }
-        None => String::from("")
     }
+    string_of_args
 }
 
 pub fn gen_domain_abstract_fns(
     name: &str,
-    args: Option<Vec<GenFnArgs>>,
+    args: &Vec<GenFnArgs>,
     code: &str,
-    modifiers: Vec<Modifier>,
-    return_args: Option<Vec<GenFnArgs>>
+    modifiers: &Vec<Modifier>,
+    return_args: &Vec<GenFnArgs>
 ) -> (String, String) {
     (
         gen_domain_funcs(
             name,
-            &args,
-            &modifiers,
+            args,
+            modifiers,
             code,
-            &return_args
+            return_args
         ),
         gen_abstract_func(
-            name, &args, &modifiers, &return_args
+            name, args, modifiers, return_args
         )
     )
 }
 
 pub fn gen_abstract_func(
     name: &str,
-    args: &Option<Vec<GenFnArgs>>,
+    args: &Vec<GenFnArgs>,
     modifiers: &Vec<Modifier>,
-    return_args: &Option<Vec<GenFnArgs>>
+    return_args: &Vec<GenFnArgs>
 ) -> String {
     let generated_args = gen_args(args, true);
-    let (mods, debug_args) = gen_modifiers(modifiers);
+    let (mods, debug_args) = gen_modifiers(
+        &merge_and_get_unique_data(
+            &modifiers,
+            vec![Modifier::Public, Modifier::Virtual, Modifier::WithDebug]
+        ),
+         TypeOfContract::Abstract);
+    let debug_args_spacing = if debug_args.len() != 0 {", "} else {""};
     let return_args = gen_return(&return_args);
     format!("
     function {name}(
-    {generated_args}{debug_args}
-    ){mods}{return_args};
-    ")
+        {generated_args}{debug_args_spacing}{debug_args}
+    ){mods}{return_args};")
 }
 
 pub fn gen_domain_funcs(
     name: &str,
-    args: &Option<Vec<GenFnArgs>>,
+    args: &Vec<GenFnArgs>,
     modifiers: &Vec<Modifier>,
     code: &str,
-    return_args: &Option<Vec<GenFnArgs>>
+    return_args: &Vec<GenFnArgs>
 ) -> String {
-    let mut reg_and_debug_funcs = function_gen(
+    let mut reg_and_debug_funcs = gen_func(
         name, &args,
-        Some(merge_and_get_unique_data(&modifiers, vec![Modifier::Public, Modifier::Override])),
+        merge_and_get_unique_data(
+            &modifiers,
+            vec![Modifier::Public, Modifier::Override, Modifier::SetSender]
+        ),
          code, &return_args
     );
 
     reg_and_debug_funcs += "
 ";
 
-    reg_and_debug_funcs += &function_gen(
+    reg_and_debug_funcs += &gen_func(
         name, &args,
-        Some(merge_and_get_unique_data(&modifiers, vec![Modifier::Public, Modifier::WithDebug])),
+        merge_and_get_unique_data(
+            &modifiers,
+            vec![Modifier::Public, Modifier::WithDebug]
+        ),
         code, &return_args
     );
     reg_and_debug_funcs
 }
 
-pub fn function_gen(
+pub fn gen_func(
     name: &str,
-    args: &Option<Vec<GenFnArgs>>,
-    modifiers: Option<Vec<Modifier>>,
+    args: &Vec<GenFnArgs>,
+    modifiers: Vec<Modifier>,
     code: &str,
-    return_args: &Option<Vec<GenFnArgs>>
+    return_args: &Vec<GenFnArgs>
 ) -> String {
     let generated_receiving_args = gen_args(&args, true);
     let generated_inputing_args = gen_args(&args, false);
-    let (mods, debug_args) = gen_modifiers(&modifiers.unwrap());
+    let (mods, debug_args) = gen_modifiers(&modifiers, TypeOfContract::Domain);
+    let debug_args_spacing = if debug_args.len() != 0 {", "} else {""};
     let generated_code = gen_fn_body(code, &generated_inputing_args);
     let return_args = gen_return(return_args);
-    if args.as_ref().map_or(false, |a| a.len() > 2) {
-        format!("function {name}(
-        {generated_receiving_args}{debug_args}
-        ) {mods} {return_args} {{
-            {generated_code}
-        }}")
+    if args.len() > 1 || debug_args.len() > 1 {
+        format!("
+    function {name}(
+        {generated_receiving_args}{debug_args_spacing}{debug_args}
+    ){mods} {return_args} {{
+        {generated_code}
+    }}")
     } else {
-        format!("function {name}({generated_receiving_args}{debug_args}) {mods} {return_args} {{
-            {generated_code}
-        }}")
+        format!("
+    function {name}({generated_receiving_args}{debug_args_spacing}{debug_args}){mods} {return_args} {{
+        {generated_code}
+    }}")
     }
 }

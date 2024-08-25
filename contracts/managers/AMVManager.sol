@@ -5,6 +5,7 @@ pragma solidity ^0.8.24;
 import "hardhat/console.sol";
 import "../abstracts/IAMV.sol";
 import "../utils/DebuggingUtils.sol";
+import "../data/AMVData.sol";
 
 contract AMV is DebuggingUtils, IAMV {
 
@@ -115,7 +116,7 @@ contract AMV is DebuggingUtils, IAMV {
     }
 
     // Adds a new authorized address to the mapping for the given private IPFS hash.
-    function addAuthorizedAddresssForGivenIpfsHash(uint i) private {
+    function addAuthorizedAddressForGivenIpfsHash(uint i) private {
         privateIPFSHashesToAddresses[hashTemp].push(AuthorizedAddress(
             authorizedAddressesTemp[i].addressVal, authorizedAddressesTemp[i].contentAccessLvl
         ));
@@ -132,15 +133,15 @@ contract AMV is DebuggingUtils, IAMV {
                 for (uint j = 0; j < privateIPFSHashesToAddresses[hashTemp].length; j++) {
                     if(privateIPFSHashesToAddresses[hashTemp][j].addressVal != authorizedAddressesTemp[i].addressVal &&
                         privateIPFSHashesToAddresses[hashTemp][j].contentAccessLvl != authorizedAddressesTemp[i].contentAccessLvl) {
-                        addAuthorizedAddresssForGivenIpfsHash(i);
+                        addAuthorizedAddressForGivenIpfsHash(i);
                     } else if (privateIPFSHashesToAddresses[hashTemp][j].addressVal == authorizedAddressesTemp[i].addressVal &&
                         privateIPFSHashesToAddresses[hashTemp][j].contentAccessLvl != authorizedAddressesTemp[i].contentAccessLvl) {
                         delete privateIPFSHashesToAddresses[hashTemp][i];
-                        addAuthorizedAddresssForGivenIpfsHash(i);
+                        addAuthorizedAddressForGivenIpfsHash(i);
                     }
                 }
             } else {
-                addAuthorizedAddresssForGivenIpfsHash(i);
+                addAuthorizedAddressForGivenIpfsHash(i);
             }
         }
     }
