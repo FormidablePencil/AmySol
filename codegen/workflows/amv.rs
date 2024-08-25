@@ -1,4 +1,4 @@
-use crate::layouts::layouts::{gen_code_and_write_to_files, DataType, GenFnData, GenFnDataArgs:: {self}, GenFnDataArgsTrait, StorageType};
+use crate::layouts::{building_blocks::{DataType, GenFnArgs, GenFnData, GenFnDataArgsTrait, StorageType}, constructing_smart_contract::gen_code_and_write_to_files};
 
 pub fn codegen() -> Result<(), std::io::Error> {
     gen_code_and_write_to_files(
@@ -9,8 +9,8 @@ pub fn codegen() -> Result<(), std::io::Error> {
             GenFnData {
                 name: "setPrivateIPFSHash",
                 args: Some(vec![
-                    GenFnDataArgs::default(DataType::String, StorageType::Memory, "_hash"),
-                    GenFnDataArgs::default(DataType::AuthorizedAddressArray, StorageType::Memory, "_authorizedAddresses"),
+                    GenFnArgs::default(DataType::String, StorageType::Memory, "_hash"),
+                    GenFnArgs::default(DataType::AuthorizedAddressArray, StorageType::Memory, "_authorizedAddresses"),
                 ]),
                 modifiers: None,
                 code: &"amv.setPrivateIPFSHash",
@@ -19,31 +19,31 @@ pub fn codegen() -> Result<(), std::io::Error> {
             GenFnData {
                 name: "getPrivateIPFSHash",
                 args: Some(vec![
-                    GenFnDataArgs::default(DataType::String, StorageType::Memory, "_hash"),
-                    GenFnDataArgs::default(DataType::AuthorizedAddressArray, StorageType::Memory, "_authorizedAddresses"),
+                    GenFnArgs::default(DataType::String, StorageType::Memory, "_hash"),
+                    GenFnArgs::default(DataType::AuthorizedAddressArray, StorageType::Memory, "_authorizedAddresses"),
                 ]),
                 modifiers: None,
                 code: &"amv.getPrivateIPFSHash",
                 return_args: Some(vec![
-                    GenFnDataArgs::data_type_and_storage_type(DataType::IPFSHashArray, StorageType::Memory),
+                    GenFnArgs::data_type_and_storage_type(DataType::IPFSHashArray, StorageType::Memory),
                 ])
             },
             GenFnData {
                 name: "getAllPrivilegedAddressesToIPFSHashes",
                 args: Some(vec![
-                    GenFnDataArgs::default(DataType::String, StorageType::Memory, "_hash"),
+                    GenFnArgs::default(DataType::String, StorageType::Memory, "_hash"),
                 ]),
                 modifiers: None,
                 code: &"amv.getAllPrivilegedAddressesToIPFSHashes",
                 return_args: Some(vec![
-                    GenFnDataArgs::data_type_and_storage_type(DataType::AuthorizedAddressArray, StorageType::Memory),
+                    GenFnArgs::data_type_and_storage_type(DataType::AuthorizedAddressArray, StorageType::Memory),
                 ])
             },
             GenFnData {
                 name: "revokeAccess",
                 args: Some(vec![
-                    GenFnDataArgs::default(DataType::String, StorageType::Memory, "_hash"),
-                    GenFnDataArgs::default(DataType::AddressArray, StorageType::Memory, "_users"),
+                    GenFnArgs::default(DataType::String, StorageType::Memory, "_hash"),
+                    GenFnArgs::default(DataType::AddressArray, StorageType::Memory, "_users"),
                 ]),
                 modifiers: None,
                 code: &"amv.revokeAccess",
@@ -52,8 +52,8 @@ pub fn codegen() -> Result<(), std::io::Error> {
             GenFnData {
                 name: "changeContentAccessLvl",
                 args: Some(vec![
-                    GenFnDataArgs::default(DataType::String, StorageType::Memory, "_hash"),
-                    GenFnDataArgs::data_type_and_name(DataType::ContentAccessLvl, "_contentAccess"),
+                    GenFnArgs::default(DataType::String, StorageType::Memory, "_hash"),
+                    GenFnArgs::data_type_and_name(DataType::ContentAccessLvl, "_contentAccess"),
                 ]),
                 modifiers: None,
                 code: &"amv.changeContentAccessLvl",
@@ -62,13 +62,13 @@ pub fn codegen() -> Result<(), std::io::Error> {
             GenFnData {
                 name: "isAuthorized",
                 args: Some(vec![
-                    GenFnDataArgs::default(DataType::String, StorageType::Memory, "_hash"),
-                    GenFnDataArgs::data_type_and_name(DataType::Address, "_user"),
+                    GenFnArgs::default(DataType::String, StorageType::Memory, "_hash"),
+                    GenFnArgs::data_type_and_name(DataType::Address, "_user"),
                 ]),
                 modifiers: None,
                 code: &"amv.isAuthorized",
                 return_args: Some(vec![
-                    GenFnDataArgs::data_type(DataType::Bool) 
+                    GenFnArgs::data_type(DataType::Bool) 
                 ])
             }
         ],

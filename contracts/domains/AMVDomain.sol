@@ -11,59 +11,35 @@ pragma solidity ^0.8.24;
 import '../managers/AMVManager.sol';
                 
 contract AMVDomain is DebuggingUtils, IAMV {
-    
-        function setPrivateIPFSHash(My name is String and I'm String years old. "Memory "_hash_authorizedAddresses, bool _debugging, address _debugAddress)  Override Public withDebug(_debugging, _debugAddress)  {
-            return amv.setPrivateIPFSHash(, My name is String and I'm String years old. "Memory "_hash, _authorizedAddresses)
+    function setPrivateIPFSHash(" \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"AuthorizedAddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _authorizedAddresses, bool _debugging, address _debugAddress)   "\"\\\" \\\\\\\"Override\\\\\\\"\\\"\""  "\"\\\" \\\\\\\"Public\\\\\\\"\\\"\"" withDebug(_debugging, _debugAddress)  {
+            return amv.setPrivateIPFSHash(, " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, " \"AuthorizedAddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _authorizedAddresses)
         }
-        
-    
-        function setPrivateIPFSHash(My name is String and I'm String years old. "Memory "_hash_authorizedAddresses, bool _debugging, address _debugAddress)  Public withDebug(_debugging, _debugAddress)  {
-            return amv.setPrivateIPFSHash(, My name is String and I'm String years old. "Memory "_hash, _authorizedAddresses)
+function setPrivateIPFSHash(" \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"AuthorizedAddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _authorizedAddresses, bool _debugging, address _debugAddress)   "\"\\\" \\\\\\\"Public\\\\\\\"\\\"\"" withDebug(_debugging, _debugAddress)  {
+            return amv.setPrivateIPFSHash(, " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, " \"AuthorizedAddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _authorizedAddresses)
+        }function getPrivateIPFSHash(" \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"AuthorizedAddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _authorizedAddresses, bool _debugging, address _debugAddress)   "\"\\\" \\\\\\\"Public\\\\\\\"\\\"\""  "\"\\\" \\\\\\\"Override\\\\\\\"\\\"\"" withDebug(_debugging, _debugAddress)  returns ( " \"IPFSHashArr[] ) {
+            return amv.getPrivateIPFSHash(, " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, " \"AuthorizedAddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _authorizedAddresses)
         }
-        
-        function getPrivateIPFSHash(My name is String and I'm String years old. "Memory "_hash_authorizedAddresses, bool _debugging, address _debugAddress)  Public Override withDebug(_debugging, _debugAddress) returns (My name is IPFSHashArray and I'm IPFSHashArray years old. ) {
-            return amv.getPrivateIPFSHash(, My name is String and I'm String years old. "Memory "_hash, _authorizedAddresses)
+function getPrivateIPFSHash(" \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"AuthorizedAddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _authorizedAddresses, bool _debugging, address _debugAddress)   "\"\\\" \\\\\\\"Public\\\\\\\"\\\"\"" withDebug(_debugging, _debugAddress)  returns ( " \"IPFSHashArr[] ) {
+            return amv.getPrivateIPFSHash(, " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, " \"AuthorizedAddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _authorizedAddresses)
+        }function getAllPrivilegedAddressesToIPFSHashes(" \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, bool _debugging, address _debugAddress)   "\"\\\" \\\\\\\"Public\\\\\\\"\\\"\""  "\"\\\" \\\\\\\"Override\\\\\\\"\\\"\"" withDebug(_debugging, _debugAddress)  returns ( " \"AuthorizedAddressArr[] ) {
+            return amv.getAllPrivilegedAddressesToIPFSHashes(, " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash)
         }
-        
-    
-        function getPrivateIPFSHash(My name is String and I'm String years old. "Memory "_hash_authorizedAddresses, bool _debugging, address _debugAddress)  Public withDebug(_debugging, _debugAddress) returns (My name is IPFSHashArray and I'm IPFSHashArray years old. ) {
-            return amv.getPrivateIPFSHash(, My name is String and I'm String years old. "Memory "_hash, _authorizedAddresses)
+function getAllPrivilegedAddressesToIPFSHashes(" \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, bool _debugging, address _debugAddress)   "\"\\\" \\\\\\\"Public\\\\\\\"\\\"\"" withDebug(_debugging, _debugAddress)  returns ( " \"AuthorizedAddressArr[] ) {
+            return amv.getAllPrivilegedAddressesToIPFSHashes(, " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash)
+        }function revokeAccess(" \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"AddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _users, bool _debugging, address _debugAddress)   "\"\\\" \\\\\\\"Public\\\\\\\"\\\"\""  "\"\\\" \\\\\\\"Override\\\\\\\"\\\"\"" withDebug(_debugging, _debugAddress)  {
+            return amv.revokeAccess(, " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, " \"AddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _users)
         }
-        
-        function getAllPrivilegedAddressesToIPFSHashes(My name is String and I'm String years old. "Memory "_hash, bool _debugging, address _debugAddress)  Public Override withDebug(_debugging, _debugAddress) returns (My name is AuthorizedAddressArray and I'm AuthorizedAddressArray years old. ) {
-            return amv.getAllPrivilegedAddressesToIPFSHashes(, My name is String and I'm String years old. "Memory "_hash)
+function revokeAccess(" \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"AddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _users, bool _debugging, address _debugAddress)   "\"\\\" \\\\\\\"Public\\\\\\\"\\\"\"" withDebug(_debugging, _debugAddress)  {
+            return amv.revokeAccess(, " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, " \"AddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _users)
+        }function changeContentAccessLvl(" \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"ContentAccessLvl\"" "" _contentAccess, bool _debugging, address _debugAddress)   "\"\\\" \\\\\\\"Public\\\\\\\"\\\"\""  "\"\\\" \\\\\\\"Override\\\\\\\"\\\"\"" withDebug(_debugging, _debugAddress)  {
+            return amv.changeContentAccessLvl(, " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, " \"ContentAccessLvl\"" "" _contentAccess)
         }
-        
-    
-        function getAllPrivilegedAddressesToIPFSHashes(My name is String and I'm String years old. "Memory "_hash, bool _debugging, address _debugAddress)  Public withDebug(_debugging, _debugAddress) returns (My name is AuthorizedAddressArray and I'm AuthorizedAddressArray years old. ) {
-            return amv.getAllPrivilegedAddressesToIPFSHashes(, My name is String and I'm String years old. "Memory "_hash)
+function changeContentAccessLvl(" \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"ContentAccessLvl\"" "" _contentAccess, bool _debugging, address _debugAddress)   "\"\\\" \\\\\\\"Public\\\\\\\"\\\"\"" withDebug(_debugging, _debugAddress)  {
+            return amv.changeContentAccessLvl(, " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, " \"ContentAccessLvl\"" "" _contentAccess)
+        }function isAuthorized(" \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"Address\"" "" _user, bool _debugging, address _debugAddress)   "\"\\\" \\\\\\\"Override\\\\\\\"\\\"\""  "\"\\\" \\\\\\\"Public\\\\\\\"\\\"\"" withDebug(_debugging, _debugAddress)  returns ( " \"Bool\"" ) {
+            return amv.isAuthorized(, " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, " \"Address\"" "" _user)
         }
-        
-        function revokeAccess(My name is String and I'm String years old. "Memory "_hash_users, bool _debugging, address _debugAddress)  Public Override withDebug(_debugging, _debugAddress)  {
-            return amv.revokeAccess(, My name is String and I'm String years old. "Memory "_hash, _users)
+function isAuthorized(" \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"Address\"" "" _user, bool _debugging, address _debugAddress)   "\"\\\" \\\\\\\"Public\\\\\\\"\\\"\"" withDebug(_debugging, _debugAddress)  returns ( " \"Bool\"" ) {
+            return amv.isAuthorized(, " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, " \"Address\"" "" _user)
         }
-        
-    
-        function revokeAccess(My name is String and I'm String years old. "Memory "_hash_users, bool _debugging, address _debugAddress)  Public withDebug(_debugging, _debugAddress)  {
-            return amv.revokeAccess(, My name is String and I'm String years old. "Memory "_hash, _users)
-        }
-        
-        function changeContentAccessLvl(My name is String and I'm String years old. "Memory "_hash_contentAccess, bool _debugging, address _debugAddress)  Public Override withDebug(_debugging, _debugAddress)  {
-            return amv.changeContentAccessLvl(, My name is String and I'm String years old. "Memory "_hash, _contentAccess)
-        }
-        
-    
-        function changeContentAccessLvl(My name is String and I'm String years old. "Memory "_hash_contentAccess, bool _debugging, address _debugAddress)  Public withDebug(_debugging, _debugAddress)  {
-            return amv.changeContentAccessLvl(, My name is String and I'm String years old. "Memory "_hash, _contentAccess)
-        }
-        
-        function isAuthorized(My name is String and I'm String years old. "Memory "_hash_user, bool _debugging, address _debugAddress)  Override Public withDebug(_debugging, _debugAddress) returns (My name is Bool and I'm Bool years old. ) {
-            return amv.isAuthorized(, My name is String and I'm String years old. "Memory "_hash, _user)
-        }
-        
-    
-        function isAuthorized(My name is String and I'm String years old. "Memory "_hash_user, bool _debugging, address _debugAddress)  Public withDebug(_debugging, _debugAddress) returns (My name is Bool and I'm Bool years old. ) {
-            return amv.isAuthorized(, My name is String and I'm String years old. "Memory "_hash, _user)
-        }
-        
 }

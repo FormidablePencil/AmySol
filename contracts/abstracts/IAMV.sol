@@ -12,27 +12,27 @@ pragma solidity ^0.8.24;
 abstract contract IAMV  {
     
     function setPrivateIPFSHash(
-    My name is String and I'm String years old. "Memory "_hash_authorizedAddresses, bool _debugging, address _debugAddress
-    )  withDebug(_debugging, _debugAddress) ;
+    " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"AuthorizedAddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _authorizedAddresses, bool _debugging, address _debugAddress
+    ) withDebug(_debugging, _debugAddress);
     
     function getPrivateIPFSHash(
-    My name is String and I'm String years old. "Memory "_hash_authorizedAddresses, bool _debugging, address _debugAddress
-    )  withDebug(_debugging, _debugAddress) returns (My name is IPFSHashArray and I'm IPFSHashArray years old. );
+    " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"AuthorizedAddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _authorizedAddresses, bool _debugging, address _debugAddress
+    ) withDebug(_debugging, _debugAddress) returns ( " \"IPFSHashArr[] );
     
     function getAllPrivilegedAddressesToIPFSHashes(
-    My name is String and I'm String years old. "Memory "_hash, bool _debugging, address _debugAddress
-    )  withDebug(_debugging, _debugAddress) returns (My name is AuthorizedAddressArray and I'm AuthorizedAddressArray years old. );
+    " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash, bool _debugging, address _debugAddress
+    ) withDebug(_debugging, _debugAddress) returns ( " \"AuthorizedAddressArr[] );
     
     function revokeAccess(
-    My name is String and I'm String years old. "Memory "_hash_users, bool _debugging, address _debugAddress
-    )  withDebug(_debugging, _debugAddress) ;
+    " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"AddressArr[] "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _users, bool _debugging, address _debugAddress
+    ) withDebug(_debugging, _debugAddress);
     
     function changeContentAccessLvl(
-    My name is String and I'm String years old. "Memory "_hash_contentAccess, bool _debugging, address _debugAddress
-    )  withDebug(_debugging, _debugAddress) ;
+    " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"ContentAccessLvl\"" "" _contentAccess, bool _debugging, address _debugAddress
+    ) withDebug(_debugging, _debugAddress);
     
     function isAuthorized(
-    My name is String and I'm String years old. "Memory "_hash_user, bool _debugging, address _debugAddress
-    )  withDebug(_debugging, _debugAddress) returns (My name is Bool and I'm Bool years old. );
+    " \"String\"" "\" \\\"\\\\\\\"\\\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Memory\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\"\\\\\\\"\\\"\"" _hash" \"Address\"" "" _user, bool _debugging, address _debugAddress
+    ) withDebug(_debugging, _debugAddress) returns ( " \"Bool\"" );
     
 }

@@ -2,19 +2,7 @@
 
 pragma solidity ^0.8.24;
 
-enum ContentAccessLvl {
-    Admin, Editor, ViewOnly
-}
-
-struct AuthorizedAddress {
-    address addressVal;
-    ContentAccessLvl contentAccessLvl;
-}
-
-struct IPFSHash {
-    string ipfsHash;
-    // todo: add date upon creation
-}
+import "../data/aMVData.sol";
 
 abstract contract IAMV {
     function setPrivateIPFSHash(string memory _hash, AuthorizedAddress[] memory _authorizedAddresses) public virtual;
