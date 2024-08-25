@@ -1,4 +1,4 @@
-use crate::layouts::{building_blocks::{DataType, GenFnArgs, GenFnData, GenFnDataArgsTrait, StorageType}, constructing_smart_contract::gen_code_and_write_to_files};
+use crate::{generated_code::generated_rs_code::DataType, layouts::{constructing_smart_contract::gen_code_and_write_to_files, smart_contract_building_blocks::{ GenFnArgs, GenFnData, GenFnDataArgsTrait, StorageType}}};
 
 pub fn codegen() -> Result<(), std::io::Error> {
     gen_code_and_write_to_files(
@@ -68,7 +68,7 @@ pub fn codegen() -> Result<(), std::io::Error> {
                 modifiers: None,
                 code: &"amv.isAuthorized",
                 return_args: Some(vec![
-                    GenFnArgs::data_type(DataType::Bool) 
+                    GenFnArgs::just_data_type(DataType::Bool) 
                 ])
             }
         ],

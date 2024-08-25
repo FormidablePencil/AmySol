@@ -1,21 +1,27 @@
+use std::{fs::File, io::{Result, Write}};
+
+use crate::utils::merge_and_get_unique_data;
+
+use super::smart_contract_building_blocks::{gen_domain_abstract_fns, GenFnData, TypeOfContract};
+
 pub fn gen_code_and_write_to_files(
     contract_name: &str,
     inharet_modules: Option<Vec<&str>>,
     imports: Option<Vec<&str>>,
     gen_fns_data: Vec<GenFnData>,
 ) -> Result<()> {
-    let (abstract_smart_contract, domain_smart_contract) = abstract_domain_gen(
+    let (abstract_smart_contract, domain_smart_contract) = abstract_and_domain_smart_contracts_gen(
         contract_name,
         if inharet_modules.is_some() {inharet_modules.unwrap()} else {vec![]},
         if imports.is_some() {imports.unwrap()} else {vec![]},
         gen_fns_data,
     );
-    let mut res = write_file(contract_name, TypeOfContract::Abstract, &abstract_smart_contract);
-    res = write_file(contract_name, TypeOfContract::Domain, &domain_smart_contract);
+    let mut res = write_smart_contract(contract_name, TypeOfContract::Abstract, &abstract_smart_contract);
+    res = write_smart_contract(contract_name, TypeOfContract::Domain, &domain_smart_contract);
     res
 }
 
-pub fn write_file(name: &str, type_of_contract: TypeOfContract, contents: &str) -> Result<()> {
+pub fn write_smart_contract(name: &str, type_of_contract: TypeOfContract, contents: &str) -> Result<()> {
     let mut file = File::create(get_file_path(name, type_of_contract))?;
     file.write_all(contents.as_bytes())
 }
@@ -88,7 +94,7 @@ pragma solidity ^0.8.24;
 
 // =============================================================================
 // This is a generated file by /codegen. Don't make edits to this file directly.
-// This code generated comes from /codegen/codegen.rs
+// This generate code comes from /codegen/codegen.rs
 // =============================================================================
 
 {concocted_imports}
